@@ -1,0 +1,336 @@
+/* Root variables for light and dark themes */
+:root {
+    --background-color-light: #f3effa;
+    --text-color-light: #6B5B95;
+    --accent-color-light: #b972f8; 
+    --navbar-background-light: linear-gradient(90deg, #c50707 0%, #c05f3b 100%); 
+    --navbar-text-light: #ffffff;
+  
+    --background-color-dark: #1f1f1f;
+    --text-color-dark: #ffffff;
+    --accent-color-dark: #b876f1; 
+    --navbar-background-dark: linear-gradient(90deg, #070707 0%, #3e127c 100%); 
+    --navbar-text-dark: #ffffff;
+}
+
+/* Reset default margins and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* General container styles */
+.container {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+    background-color: var(--background-color-light); 
+    color: var(--text-color-light); /* Dark Purple */
+}
+
+.container h1 {
+    margin: 1em auto;
+    font-size: 2.5em;
+    color: var(--accent-color-light);
+}
+
+.container p {
+    font-size: 1.1em;
+    margin: 0 1em;
+    line-height: 1.6;
+}
+
+.container section {
+    margin-bottom: 40px;
+}
+
+.container h2 {
+    margin: 1em auto;
+    font-size: 2em;
+    color: var(--accent-color-light); /* Medium Pink */
+}
+
+.container h3 {
+    margin: 1em auto;
+    font-size: 1.5em;
+    color: #8B78E6; /* Medium Purple */
+}
+
+.container .intro,
+.container .mission,
+.container .offerings {
+    margin-bottom: 20px;
+}
+
+.container .offering {
+    margin-bottom: 15px;
+}
+
+.Team {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    flex-wrap: wrap; /* Wrap items to next line if they exceed container width */
+    margin-top: 20px; /* Adjust margin as needed */
+}
+
+.Team img {
+    max-width: 100%; /* Adjust maximum width */
+    margin: 10px; /* Add margin between images */
+}
+
+.image {
+    display: flex; /* Use flexbox for inline display */
+    justify-content: center; /* Center images horizontally */
+    align-items: center; /* Center images vertically */
+    margin-top: 20px; /* Adjust margin as needed */
+}
+
+.image img {
+    max-width: 20%; /* Ensure images don't exceed their container width */
+    margin: -5px 30px 10px 30px; /* Add margin between images */
+}
+
+/* Dark mode adjustments */
+[data-theme='dark'] .container {
+    background-color: var(--background-color-dark);
+    color: var(--text-color-dark);
+}
+
+[data-theme='dark'] .container h2 {
+    color: var(--accent-color-dark); /* Use dark mode accent color */
+}
+
+[data-theme='dark'] .container h1,
+[data-theme='dark'] .container h3 {
+    color: var(--text-color-dark);
+}
+
+/* Navbar styles */
+.NavbarItems {
+    background: var(--navbar-background-light);
+    /* !!!!!!!!!!This is height changer of the pink color in small navibar!!!!!!!!!!!*/
+    height: 80px; 
+    display: flex;
+    justify-content: space-between; /* Align items to the left and right */
+    align-items: center;
+    font-size: 1.2rem;
+    padding: 0 20px; /* Add some padding to the container */
+}
+
+.NavbarItems a {
+    text-decoration: none;
+}
+
+.navbar-logo {
+    display: flex;
+    align-items: center; /* Center vertically */
+    color: var(--navbar-text-light);
+    cursor: pointer;
+}
+
+.temp {
+    scale: 0.6;
+}
+
+.far-react {
+    margin-left: 0.5rem;
+    font-size: 1.6rem;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    text-align: center;
+    position: relative; /* Position relative to handle sub-menu positioning */
+}
+
+.nav-links {
+    color: var(--navbar-text-light);
+    text-decoration: none;
+    padding: 0.5rem 1rem; /* Use space instead of comma */
+    margin: 0 10px;
+    position: relative; /* Ensure sub-menu is positioned relative to parent */
+}
+
+.nav-links:hover {
+    background-color: #6d76f7;
+    border-radius: 4px;
+    transition: all 0.2s ease-out;
+}
+
+/* Sub-menu container */
+.nav-links .sub-menu {
+    display: none; /* Initially hide sub-menu */
+    position: absolute;
+    top: 100%; /* Position below the parent link */
+    left: 0;
+    background-color: var(--navbar-background-light); /* Background color for sub-menu */
+    padding: 10px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    text-align: center;
+}
+
+/* Show sub-menu on hover */
+.nav-links:hover .sub-menu {
+    display: block;
+}
+
+/* Sub-menu links */
+.sub-nav-links {
+    display: block;
+    padding: 10px 20px;
+    color: var(--navbar-text-light);
+    text-decoration: none;
+}
+
+.sub-nav-links:hover {
+    background-color: #7577fa;
+    color: #ffffff;
+}
+
+.fas-bars {
+    color: var(--navbar-text-light);
+}
+
+.nav-links-mobile {
+    display: none;
+}
+
+.menu-icon {
+    color: var(--navbar-text-light);
+    display: none;
+}
+
+/* Dark mode navbar adjustments */
+[data-theme='dark'] .NavbarItems {
+    background: var(--navbar-background-dark);
+}
+
+[data-theme='dark'] .navbar-logo,
+[data-theme='dark'] .nav-links,
+[data-theme='dark'] .fas-bars,
+[data-theme='dark'] .menu-icon {
+    color: var(--navbar-text-dark);
+}
+
+/* Responsive styles for smaller screens */
+@media screen and (max-width: 960px) {
+    .NavbarItems {
+        position: relative;
+    }
+
+    .nav-menu {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+        position: absolute;
+        top: 80px;
+        left: -100%;
+        opacity: 1;
+        transition: all 0.5s ease;
+    }
+
+    .nav-menu.active {
+        background: var(--navbar-background-light);
+        left: 0;
+        opacity: 1;
+        transition: all 0.5s ease;
+        z-index: 1;
+        margin-left: 0;
+    }
+
+    .nav-links {
+        text-align: center;
+        padding: 2rem;
+        width: 100%;
+        display: table;
+    }
+
+    .nav-links:hover {
+        background-color: #7f33f0;
+        border-radius: 0;
+    }
+
+    .navbar-logo {
+        display: flex;
+        align-items: center;
+        color: var(--navbar-text-light);
+        cursor: pointer;
+        text-decoration: none;
+        height: 1000%;
+    }
+
+    .navbar-logo h1 {
+        font-size: 1.6rem; /* Adjust font size as needed */
+        margin: 0;
+        line-height: 80px;
+    }
+
+    .navbar-logo img {
+        max-height: 50px; /* Adjust as needed */
+        margin-right: 10px; /* Space between the logo and text */
+    }
+
+
+/* Responsive styles for smaller screens */
+@media screen and (max-width: 960px) {
+    .navbar-logo {
+        position: absolute;
+        top: 50%;
+        left: 20px;
+        transform: translateY(-50%);
+    }
+}
+
+    .menu-icon {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: translate(-100%, 60%);
+        font-size: 1.8rem;
+        cursor: pointer;
+    }
+
+    .fa-times {
+        color: var(--navbar-text-light);
+        font-size: 2rem;
+    }
+
+    .nav-links-mobile {
+        display: block;
+        text-align: center;
+        padding: 1.5rem;
+        margin: 2rem auto;
+        border-radius: 4px;
+        width: 80%;
+        background: #4ad9e4;
+        text-decoration: none;
+        color: var(--navbar-text-light);
+        font-size: 1rem;
+    }
+
+    .nav-links-mobile:hover {
+        background: #fff;
+        color: #6568f4;
+        transition: 250ms;
+    }
+
+    /* Dark mode responsive adjustments */
+    [data-theme='dark'] .nav-menu.active {
+        background: var(--navbar-background-dark);
+    }
+
+    [data-theme='dark'] .nav-links-mobile {
+        color: var(--navbar-text-dark);
+    }
+
+    [data-theme='dark'] .nav-links-mobile:hover {
+        background: #fff;
+        color: #6568f4;
+    }
+}
